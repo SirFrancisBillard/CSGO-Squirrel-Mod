@@ -1,6 +1,6 @@
 // Example plugin that makes a very simple deathmatch mode
 
-this.SpawnWithArmor <- true
+this.SpawnWithArmor <- true;
 
 function OnMapLoad() {
 	SendToConsole("mp_teammates_are_enemies 1");
@@ -8,7 +8,7 @@ function OnMapLoad() {
 	SendToConsole("mp_respawn_on_death_t 1");
 	SendToConsole("mp_respawn_on_death_ct 1");
 	if (SpawnWithArmor) {
-		SendToConsole("mp_free_armor 1")
+		SendToConsole("mp_free_armor 1");
 	}
 }
 
