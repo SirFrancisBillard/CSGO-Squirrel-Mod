@@ -46,6 +46,11 @@ function DrawEntityBBox(ent,r,g,b,a,time)
 	DebugDrawBox(ent.GetOrigin(),ent.GetBoundingMins(), ent.GetBoundingMaxs(), r, g, b, a, time)
 }
 
+function DrawNormal(pos,norm,s,time)
+{
+	local ns = norm*s;
+	DebugDrawLine(Vector(pos.x,pos.y,pos.z), Vector(pos.x+ns.x,pos.y+ns.y,pos.z+ns.z), 0, 255, 255, false, time);	
+}
 
 // Tracers
 
