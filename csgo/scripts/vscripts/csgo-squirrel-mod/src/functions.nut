@@ -19,6 +19,12 @@ function RunConsoleCommandWithDelay(cmd, delay) {
 }
 
 function GetTeamID(team_name) {
+	if (team_name == "unassigned") {
+		return 0;
+	}
+	if (team_name == "spectators") {
+		return 1;
+	}
 	if (team_name == "T") {
 		return 2;
 	}
