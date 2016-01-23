@@ -3,6 +3,15 @@
 this.MaxTraitors <- 5;
 this.MaxDetectives <- 2;
 
+function TTTSettings() {
+	RunConsoleCommand("mp_teammates_are_enemies 1");
+	RunConsoleCommand("mp_damage_scale_ct_head 0.5");
+	RunConsoleCommand("mp_damage_scale_ct_body 0.5");
+	RunConsoleCommand("sv_deadtalk 0");
+	RunConsoleCommand("sv_alltalk 1");
+	RunConsoleCommand("sv_allow_votes 0");
+}
+
 function GiveDefaultItems() {
 	GiveAllPlayersItem("weapon_knife");
 	GiveAllPlayersItem("item_assaultsuit");
@@ -50,7 +59,8 @@ function OnMapLoad() {
 }
 
 function OnNewRound() {
-	GiveDefaultItems()
-	AssignRoles()
-	ScriptPrintMessageChatAll("Traitors have been chosen! Watch your backs!")
+	GiveDefaultItems();
+	AssignRoles();
+	ScriptPrintMessageChatTeam(GetTeamID("T"), "Traitors have been chosen! Watch your backs!");
+	ScriptPrintMessageChatTeam(GetTeamID("CT"), "You are a detective. You take less damage. Try to find the traitors and kill them!");
 }
