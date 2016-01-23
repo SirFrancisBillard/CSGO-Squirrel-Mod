@@ -73,3 +73,11 @@ function GetAllPlayers() {
 	}
 	return plyAmt;
 }
+
+function GivePlayerItem(ply, item_class) {
+	RunConsoleCommand("ent_create " + item_class + " targetname TEMP_ITEM_SQUIRREL");
+	local plyPos = ply.EyePosition();
+	local gun = Entities.FindByTarget(null, "TEMP_ITEM_SQUIRREL");
+	gun.SetOrigin(plyPos);
+	RunConsoleCommandWithDelay("ent_fire TEMP_ITEM_SQUIRREL Kill", 1.0);
+}
