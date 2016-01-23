@@ -1,25 +1,18 @@
-// Example plugin that gives ESEA-like matches
+// Example plugin that creates earthquakes
 
-this.WarmupEndDelay <- 40.0; // Extra time added to default warmup time (Must be float for RunConsoleCommandWithDelay to work)
+this.QuakeDelayMin <- 120.0;
+this.QuakeDelayMax <- 180.0;
 
-function IsHostageMap(map_name) {
-	return (map_name.find("cs_") == 0);
+function MakeQuake() {
+	RunConsoleCommand("ent_create env_shake TempQuakeMaker");
+	EntFire("TempQuakeMaker", "Amplitude", 16);
+	EntFire("TempQuakeMaker", "AddOutput", "EffectRadius 99999999999999999999");
 }
 
 function OnMapLoad() {
-	ScriptPrintMessageChatAll("MATCH WILL START WHEN WARMUP HAS ENDED");
-	RunConsoleCommand("warmup_pausetimer 1");
-	ScriptPrintMessageCenterAll("GAME WILL START IN " + WarmupEndDelay + " SECONDS");
-	RunConsoleCommandWithDelay("warmup_pausetimer 0", WarmupEndDelay);
+
 }
 
 function OnNewRound() {
-	if IsHostageMap(GetMapName()) {
-		ScriptPrintMessageChatTeam(GetTeamID("T"), "Stop the hostages from being rescued to win.");
-		ScriptPrintMessageChatTeam(GetTeamID("CT"), "Rescue all of the hostages to win.");	
-	}
-	else {
-		ScriptPrintMessageChatTeam(GetTeamID("T"), "Plant and defend the bomb until detonation to win.");
-		ScriptPrintMessageChatTeam(GetTeamID("CT"), "Stop the bomb from being detonated to win.");
-	}
+
 }
