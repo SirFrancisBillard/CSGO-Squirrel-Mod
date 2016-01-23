@@ -19,7 +19,7 @@ function RunConsoleCommandWithDelay(cmd, delay) {
 }
 
 function GiveAllPlayersItem(item_class) {
-	RunConsoleCommand("ent_create game_player_equip TEMP_EQUIP_SQUIRREL")
+	RunConsoleCommand("ent_create game_player_equip targetname TEMP_EQUIP_SQUIRREL")
 	EntFire("TEMP_EQUIP_SQUIRREL", "AddOutput " + item_class + " 1")
 	EntFire("TEMP_EQUIP_SQUIRREL", "Kill")
 }
