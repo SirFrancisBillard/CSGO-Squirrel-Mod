@@ -12,6 +12,20 @@ function TTTSettings() {
 	RunConsoleCommand("sv_allow_votes 0");
 }
 
+function RandomPickTraitor() {
+	local plyAmt = GetAllPlayers();
+	if (RandomInt(1, plyAmt) == 2) {
+		return true
+	}
+}
+
+function RandomPickDetective() {
+	local plyAmt = GetAllPlayers();
+	if (RandomInt(1, plyAmt) == 1) {
+		return true
+	}
+}
+
 function GiveDefaultItems() {
 	GiveAllPlayersItem("weapon_knife");
 	GiveAllPlayersItem("item_assaultsuit");
