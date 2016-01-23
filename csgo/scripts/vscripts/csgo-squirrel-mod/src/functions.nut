@@ -11,11 +11,11 @@ function GameIsOnPC() {
 }
 
 function RunConsoleCommand(cmd) {
-	EntFire("SquirrelHooks_CommandCenter", "command " + cmd);
+	EntFire("SquirrelHooks_ServerCommand", "command " + cmd);
 }
 
 function RunConsoleCommandWithDelay(cmd, delay) {
-	EntFire("SquirrelHooks_CommandCenter", "command " + cmd, delay);
+	EntFire("SquirrelHooks_ServerCommand", "command " + cmd, delay);
 }
 
 function GiveAllPlayersItem(item_class) {
