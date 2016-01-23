@@ -14,6 +14,10 @@ function RunConsoleCommand(cmd) {
 	EntFire("SquirrelHooks_CommandCenter", cmd);
 }
 
+function RunConsoleCommandWithDelay(cmd, delay) {
+	EntFire("SquirrelHooks_CommandCenter", cmd, delay);
+}
+
 function GetTeamID(team_name) {
 	if (team_name == "T") {
 		return 2;
