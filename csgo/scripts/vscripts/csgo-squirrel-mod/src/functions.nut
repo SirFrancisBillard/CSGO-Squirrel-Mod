@@ -18,10 +18,22 @@ function RunConsoleCommandWithDelay(cmd, delay) {
 	EntFire("SquirrelHooks_ServerCommand", "command " + cmd, delay);
 }
 
+function GivePlayerItem(ply, item_class) { // Doesn't work yet
+	local plyOldName = ply.GetName();
+	EntFire(ply, "AddOutput" "targetname TEMP_PLAYER_TO_GIVE_ITEM");
+	RunConsoleCommand("ent_create filter_activator_name targetname TEMP_ITEM_GIVE_FILTER");
+	RunConsoleCommand("ent_create game_player_equip targetname TEMP_ITEM_EQUIP_SQUIRREL");
+	RunConsoleCommand("ent_fire TEMP_ITEM_GIVE_FILTER addoutput filtername TEMP_PLAYER_TO_GIVE_ITEM");
+	RunConsoleCommand("ent_fire TEMP_ITEM_FIVE_FILTER addoutput ");
+	RunConsoleCommand("ent_fire TEMP_ITEM_EQUIP_SQUIRREL TriggerForAllPlayers");
+	EntFire(ply, "AddOutput" "targetname " + plyOldName);
+}
+
 function GiveAllPlayersItem(item_class) {
-	RunConsoleCommand("ent_create game_player_equip targetname TEMP_EQUIP_SQUIRREL")
-	EntFire("TEMP_EQUIP_SQUIRREL", "AddOutput " + item_class + " 1")
-	EntFire("TEMP_EQUIP_SQUIRREL", "Kill")
+	RunConsoleCommand("ent_create game_player_equip targetname TEMP_EQUIP_SQUIRREL");
+	RunConsoleCommand("ent_fire TEMP_EQUIP_SQUIRREL AddOutput " + item_class + " 1");
+	RunConsoleCommand("ent_fire TEMP_EQUIP_SQUIRREL TriggerForAllPlayers");
+	RunConsoleCommand("ent_fire TEMP_EQUIP_SQUIRREL Kill");
 }
 
 function GetTeamID(team_name) {
@@ -72,12 +84,4 @@ function GetAllPlayers() {
 		plyAmt = plyAmt + 1;
 	}
 	return plyAmt;
-}
-
-function GivePlayerItem(ply, item_class) {
-	RunConsoleCommand("ent_create " + item_class + " targetname TEMP_ITEM_SQUIRREL");
-	local plyPos = ply.EyePosition();
-	local gun = Entities.FindByTarget(null, "TEMP_ITEM_SQUIRREL");
-	gun.SetOrigin(plyPos);
-	RunConsoleCommandWithDelay("ent_fire TEMP_ITEM_SQUIRREL Kill", 1.0);
 }
