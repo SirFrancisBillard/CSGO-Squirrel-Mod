@@ -63,3 +63,13 @@ function GetGameInfo() {
 		return "unknown";
 	}
 }
+
+function GetAllPlayers() {
+	local ply = null;
+	local plyAmt = 0;
+	while (Entities.FindByClassname(ply, "player") != null) {
+		ply = Entities.FindByClassname(ply, "player");
+		plyAmt = plyAmt + 1;
+	}
+	return plyAmt;
+}
