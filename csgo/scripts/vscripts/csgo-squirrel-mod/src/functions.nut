@@ -11,11 +11,17 @@ function GameIsOnPC() {
 }
 
 function RunConsoleCommand(cmd) {
-	EntFire("SquirrelHooks_CommandCenter", cmd);
+	EntFire("SquirrelHooks_CommandCenter", "command " + cmd);
 }
 
 function RunConsoleCommandWithDelay(cmd, delay) {
-	EntFire("SquirrelHooks_CommandCenter", cmd, delay);
+	EntFire("SquirrelHooks_CommandCenter", "command " + cmd, delay);
+}
+
+function GiveAllPlayersItem(item_class) {
+	RunConsoleCommand("ent_create game_player_equip TEMP_EQUIP_SQUIRREL")
+	EntFire("TEMP_EQUIP_SQUIRREL", "AddOutput " + item_class + " 1")
+	EntFire("TEMP_EQUIP_SQUIRREL", "Kill")
 }
 
 function GetTeamID(team_name) {
