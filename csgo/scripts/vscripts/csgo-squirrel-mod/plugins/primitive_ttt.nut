@@ -3,6 +3,15 @@
 this.MaxTraitors <- 5;
 this.MaxDetectives <- 2;
 
+function GiveDefaultItems() {
+	GiveAllPlayersItem("weapon_p250");
+	GiveAllPlayersItem("weapon_nova");
+}
+
+function MakeTraitor(ply) {
+	ply.SetTeam(GetTeamID("T"));
+}
+
 function AssignRoles() {
 	local ply = null;
 	while (Entities.FindByClassname(ply, "player") != null) {
@@ -20,5 +29,5 @@ function OnMapLoad() {
 }
 
 function OnNewRound() {
-
+	GiveDefaultItems()
 }
