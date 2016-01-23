@@ -18,15 +18,11 @@ function RunConsoleCommandWithDelay(cmd, delay) {
 	EntFire("SquirrelHooks_ServerCommand", "command " + cmd, delay);
 }
 
-function GivePlayerItem(ply, item_class) { // Doesn't work yet
-	local plyOldName = ply.GetName();
-	EntFire(ply, "AddOutput" "targetname TEMP_PLAYER_TO_GIVE_ITEM");
-	RunConsoleCommand("ent_create filter_activator_name targetname TEMP_ITEM_GIVE_FILTER");
+function GivePlayerItem(ply, item_class) {
 	RunConsoleCommand("ent_create game_player_equip targetname TEMP_ITEM_EQUIP_SQUIRREL");
-	RunConsoleCommand("ent_fire TEMP_ITEM_GIVE_FILTER addoutput filtername TEMP_PLAYER_TO_GIVE_ITEM");
-	RunConsoleCommand("ent_fire TEMP_ITEM_FIVE_FILTER addoutput ");
-	RunConsoleCommand("ent_fire TEMP_ITEM_EQUIP_SQUIRREL TriggerForAllPlayers");
-	EntFire(ply, "AddOutput" "targetname " + plyOldName);
+	RunConsoleCommand("ent_fire TEMP_ITEM_EQUIP_SQUIRREL addoutput " + item_class + " 1");
+	DoEntFire("TEMP_ITEM_EQUIP_SQUIRREL", "Use", null, 0.0, ply, ply);
+	RunConsoleCommand("ent_fire TEMP_ITEM_EQUIP_SQUIRREL Kill");
 }
 
 function GiveAllPlayersItem(item_class) {
