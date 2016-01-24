@@ -93,6 +93,7 @@ function LotteryStart(money) {
 
 function OnMapLoad() {
 	RPSettings()
+	CreateDefaultRPJobs()
 }
 
 function OnNewRound() {
