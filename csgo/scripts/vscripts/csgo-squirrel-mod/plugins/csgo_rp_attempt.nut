@@ -17,6 +17,7 @@ function CreateDefaultRPJobs() {
 	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_p250", "weapon_taser"});
 	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_mac10"});
 	CreateJob(40, "Gun Dealer", GetTeamID("T"), 2, {});
+	CreateJob(50, "Mayor", GetTeamID("CT"), 1, {});
 }
 
 function JobIsOverLimit(job_id) {
@@ -32,6 +33,11 @@ function RPSettings() {
 	RunConsoleCommand("mp_teammates_are_enemies 1");
 	RunConsoleCommand("mp_damage_scale_ct_head 0.5");
 	RunConsoleCommand("mp_damage_scale_ct_body 0.5");
+	RunConsoleCommand("mp_give_player_c4 0");
+	RunConsoleCommand("mp_maxrounds 9999");
+	RunConsoleCommand("mp_roundtime 99999999");
+	RunConsoleCommand("mp_roundtime_defuse 99999999");
+	RunConsoleCommand("mp_roundtime_hostage 99999999");
 	RunConsoleCommand("sv_deadtalk 0");
 	RunConsoleCommand("sv_alltalk 1");
 	RunConsoleCommand("sv_allow_votes 0");
@@ -49,6 +55,16 @@ function SetPlayerJob(ply, job_id) {
 
 function GiveDefaultItems() {
 	GiveAllPlayersItem("weapon_knife");
+}
+
+function LockDownStatus(isLockdown) {
+	if (isLockdown) {
+		ScriptPrintMessageCenterTeam(2, "The mayor has initiated a lockdown. Please return to your homes.");
+		ScriptPrintMessageCenterTeam(3, "The mayor has initiated a lockdown. Patrol the city and protect the mayor.");
+	} else {
+		ScriptPrintMessageCenterTeam(2, "The lockdown has ended. You may leave your homes.");
+		ScriptPrintMessageCenterTeam(3, "The lockdown has ended. You may return to the station.");	
+	}
 }
 
 function OnMapLoad() {
