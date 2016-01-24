@@ -11,6 +11,8 @@ this.JobTeams <- {};
 this.JobLimits <- {};
 this.JobItems <- {};
 
+this.DefaultLotteryCost <- 150;
+
 function CreateJob(id, name, team, limit, items) {
 	JobNames[id] <- name;
 	JobTeams[id] <- team;
@@ -80,6 +82,12 @@ function LockdownStatus(isLockdown) {
 		RunConsoleCommand("ent_fire GORP_LockdownSound StopSound");
 		ScriptPrintMessageCenterTeam(2, "The lockdown has ended. You may leave your homes.");
 		ScriptPrintMessageCenterTeam(3, "The lockdown has ended. You may return to the station.");
+	}
+}
+
+function LotteryStart(money) {
+	if (money == 0) {
+		money = DefaultLotteryCost;
 	}
 }
 
