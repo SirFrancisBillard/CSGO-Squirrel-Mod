@@ -1,9 +1,15 @@
-// My attempt at making some sort of RP gamemode in CSGO
+// Remember: Include source code and prefab before workshop release!
 
-this.JobNames = {};
-this.JobTeams = {};
-this.JobLimits = {};
-this.JobItems = {};
+this.Plugin_LongName <- "Global Offensive Roleplay";
+this.Plugin_ShortName <- "GORP";
+this.Plugin_Description <- "Step back from competitive and play the classic mode where wits are more powerful bullets.";
+this.Plugin_Version <- "0.4";
+this.Plugin_Author <- "Sir Francis Billard";
+
+this.JobNames <- {};
+this.JobTeams <- {};
+this.JobLimits <- {};
+this.JobItems <- {};
 
 function CreateJob(id, name, team, limit, items) {
 	JobNames[id] <- name;
@@ -78,9 +84,20 @@ function LockdownStatus(isLockdown) {
 }
 
 function OnMapLoad() {
-
+	RPSettings()
 }
 
 function OnNewRound() {
 
 }
+
+// Here it is. Global Offensive Roleplay.
+// When I was dreaming about making this years ago, (Back in the CSS days) I never thought it would ever see the light of day.
+// Dedications:
+// Nathaniel. You sly little bucket.
+// Moofin Man. Time really does fly.
+// MeltingIce. I told you I wasn't worthless!
+// 808dkaneohe. For being the most practical person I have ever met.
+// And of course:
+// Gaben.
+// at valvesoftware.com
