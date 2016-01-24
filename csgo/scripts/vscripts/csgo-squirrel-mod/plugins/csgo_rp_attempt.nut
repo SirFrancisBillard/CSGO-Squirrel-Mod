@@ -2,19 +2,30 @@
 
 this.JobNames = {};
 this.JobTeams = {};
+this.JobLimits = {};
 this.JobItems = {};
 
-function CreateJob(id, name, team, items) {
+function CreateJob(id, name, team, limit, items) {
 	JobNames[id] <- name;
 	JobTeams[id] <- team;
+	JobLimits[id] <- limit;
 	JobItems[id] <- items;
 }
 
 function CreateDefaultRPJobs() {
-	CreateJob(10, "Citizen", GetTeamID("T"), {});
-	CreateJob(20, "Police Officer", GetTeamID("CT"), {"weapon_p250", "weapon_taser"})
-	CreateJob(30, "Gangster", GetTeamID("T"), {"weapon_mac10"})
-	CreateJob(40, "Gun Dealer", GetTeamID("T"), {})
+	CreateJob(10, "Citizen", GetTeamID("T"), 9999, {});
+	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_p250", "weapon_taser"})
+	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_mac10"})
+	CreateJob(40, "Gun Dealer", GetTeamID("T"), 2, {})
+}
+
+function JobIsOverLimit(job_id) {
+	local jobAmt = GetAllPlayersWithTarget(JobNames[job_id]);
+	if (jobAmt > TableValue(JobLimits[job_id])) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
 function RPSettings() {
