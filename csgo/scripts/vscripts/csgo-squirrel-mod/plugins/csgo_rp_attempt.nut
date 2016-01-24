@@ -10,6 +10,13 @@ function CreateJob(id, name, team, items) {
 	JobItems[id] <- items;
 }
 
+function CreateDefaultRPJobs() {
+	CreateJob(10, "Citizen", GetTeamID("T"), {});
+	CreateJob(20, "Police Officer", GetTeamID("CT"), {"weapon_p250", "weapon_taser"})
+	CreateJob(30, "Gangster", GetTeamID("T"), {"weapon_mac10"})
+	CreateJob(40, "Gun Dealer", GetTeamID("T"), {})
+}
+
 function RPSettings() {
 	RunConsoleCommand("mp_teammates_are_enemies 1");
 	RunConsoleCommand("mp_damage_scale_ct_head 0.5");
