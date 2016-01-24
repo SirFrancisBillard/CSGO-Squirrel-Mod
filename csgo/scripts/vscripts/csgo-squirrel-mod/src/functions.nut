@@ -25,6 +25,10 @@ function GivePlayerItem(ply, item_class) {
 	RunConsoleCommand("ent_fire TEMP_ITEM_EQUIP_SQUIRREL Kill");
 }
 
+function SetTargetName(ent, name) {
+	EntFireByHandle(ent, "addoutput", "targetname " + name, 0.0, null, null);
+}
+
 function GiveAllPlayersItem(item_class) {
 	RunConsoleCommand("ent_create game_player_equip targetname TEMP_EQUIP_SQUIRREL");
 	RunConsoleCommand("ent_fire TEMP_EQUIP_SQUIRREL AddOutput " + item_class + " 1");
