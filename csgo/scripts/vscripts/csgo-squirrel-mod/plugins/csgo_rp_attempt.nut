@@ -34,6 +34,15 @@ function RPSettings() {
 	RunConsoleCommand("mp_damage_scale_ct_head 0.5");
 	RunConsoleCommand("mp_damage_scale_ct_body 0.5");
 	RunConsoleCommand("mp_give_player_c4 0");
+	RunConsoleCommand("mp_buytime 99999999999999");
+	RunConsoleCommand("mp_startmoney 200");
+	RunConsoleCommand("mp_maxmoney 200000");
+	RunConsoleCommand("mp_maxmoney 200000");
+	RunConsoleCommand("mp_playercashawards 0");
+	RunConsoleCommand("mp_afterroundmoney 0");
+	RunConsoleCommand("mp_teamcashawards 0");
+	RunConsoleCommand("mp_weapons_allow_map_placed 1");
+	RunConsoleCommand("mp_weapons_glow_on_ground 1");
 	RunConsoleCommand("mp_maxrounds 9999");
 	RunConsoleCommand("mp_roundtime 99999999");
 	RunConsoleCommand("mp_roundtime_defuse 99999999");
@@ -51,10 +60,6 @@ function SetPlayerJob(ply, job_id) {
 			GivePlayerItem(ply, curItem);
 		}	
 	}
-}
-
-function GiveDefaultItems() {
-	GiveAllPlayersItem("weapon_knife");
 }
 
 function LockDownStatus(isLockdown) {
