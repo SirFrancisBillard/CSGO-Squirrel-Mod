@@ -85,3 +85,14 @@ function GetAllPlayers() {
 	}
 	return plyAmt;
 }
+
+function ForEachPlayer(handler, func) {
+	local ply = handler;
+	local plyAmt = 0;
+	while (Entities.FindByClassname(ply, "player") != null) {
+		ply = Entities.FindByClassname(ply, "player");
+		plyAmt = plyAmt + 1;
+		func(ply, plyAmt);
+	}
+	return plyAmt;
+}
