@@ -47,6 +47,9 @@ function RPSettings() {
 	RunConsoleCommand("mp_roundtime 99999999");
 	RunConsoleCommand("mp_roundtime_defuse 99999999");
 	RunConsoleCommand("mp_roundtime_hostage 99999999");
+	RunConsoleCommand("mp_radar_showall 1");
+	RunConsoleCommand("mp_respawn_on_death_t 1");
+	RunConsoleCommand("mp_respawn_on_death_ct 1");
 	RunConsoleCommand("sv_deadtalk 0");
 	RunConsoleCommand("sv_alltalk 1");
 	RunConsoleCommand("sv_allow_votes 0");
