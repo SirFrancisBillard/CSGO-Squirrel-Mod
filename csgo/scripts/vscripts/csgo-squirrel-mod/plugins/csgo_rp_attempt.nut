@@ -14,8 +14,8 @@ function CreateJob(id, name, team, limit, items) {
 
 function CreateDefaultRPJobs() {
 	CreateJob(10, "Citizen", GetTeamID("T"), 9999, {});
-	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_p250", "weapon_taser"});
-	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_mac10"});
+	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_revolver", "weapon_taser"});
+	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_glock"});
 	CreateJob(40, "Gun Dealer", GetTeamID("T"), 2, {});
 	CreateJob(50, "Mayor", GetTeamID("CT"), 1, {});
 }
@@ -67,11 +67,13 @@ function SetPlayerJob(ply, job_id) {
 
 function LockdownStatus(isLockdown) {
 	if (isLockdown) {
+		RunConsoleCommand("ent_fire GORP_LockdownSound PlaySound");
 		ScriptPrintMessageCenterTeam(2, "The mayor has initiated a lockdown. Please return to your homes.");
 		ScriptPrintMessageCenterTeam(3, "The mayor has initiated a lockdown. Patrol the city and protect the mayor.");
 	} else {
+		RunConsoleCommand("ent_fire GORP_LockdownSound StopSound");
 		ScriptPrintMessageCenterTeam(2, "The lockdown has ended. You may leave your homes.");
-		ScriptPrintMessageCenterTeam(3, "The lockdown has ended. You may return to the station.");	
+		ScriptPrintMessageCenterTeam(3, "The lockdown has ended. You may return to the station.");
 	}
 }
 
