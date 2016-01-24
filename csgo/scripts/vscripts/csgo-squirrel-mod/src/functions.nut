@@ -86,6 +86,18 @@ function GetAllPlayers() {
 	return plyAmt;
 }
 
+function GetAllPlayersWithTarget(targToFind) {
+	local ply = null;
+	local plyAmt = 0;
+	while (Entities.FindByClassname(ply, "player") != null) {
+		ply = Entities.FindByClassname(ply, "player");
+		if (ply.GetName() == targToFind) {
+			plyAmt = plyAmt + 1;
+		}
+	}
+	return plyAmt;
+}
+
 function ForEachPlayer(handler, func) {
 	local ply = handler;
 	local plyAmt = 0;
