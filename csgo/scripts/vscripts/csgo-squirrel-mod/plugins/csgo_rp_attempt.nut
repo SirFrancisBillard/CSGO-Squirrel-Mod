@@ -14,9 +14,9 @@ function CreateJob(id, name, team, limit, items) {
 
 function CreateDefaultRPJobs() {
 	CreateJob(10, "Citizen", GetTeamID("T"), 9999, {});
-	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_p250", "weapon_taser"})
-	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_mac10"})
-	CreateJob(40, "Gun Dealer", GetTeamID("T"), 2, {})
+	CreateJob(20, "Police Officer", GetTeamID("CT"), 3, {"weapon_p250", "weapon_taser"});
+	CreateJob(30, "Gangster", GetTeamID("T"), 4, {"weapon_mac10"});
+	CreateJob(40, "Gun Dealer", GetTeamID("T"), 2, {});
 }
 
 function JobIsOverLimit(job_id) {
@@ -38,10 +38,12 @@ function RPSettings() {
 }
 
 function SetPlayerJob(ply, job_id) {
-	SetTargetName(ply, JobNames[job_id]);
-	ply.SetTeam(JobTeams[job_id]);
-	foreach(curItem in JobItems[job_id]) {
-		GivePlayerItem(ply, curItem);
+	if not JobIsOverLimit(job_id) {
+		SetTargetName(ply, JobNames[job_id]);
+		ply.SetTeam(JobTeams[job_id]);
+		foreach(curItem in JobItems[job_id]) {
+			GivePlayerItem(ply, curItem);
+		}	
 	}
 }
 
