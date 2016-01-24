@@ -65,7 +65,7 @@ function SetPlayerJob(ply, job_id) {
 	}
 }
 
-function LockDownStatus(isLockdown) {
+function LockdownStatus(isLockdown) {
 	if (isLockdown) {
 		ScriptPrintMessageCenterTeam(2, "The mayor has initiated a lockdown. Please return to your homes.");
 		ScriptPrintMessageCenterTeam(3, "The mayor has initiated a lockdown. Patrol the city and protect the mayor.");
