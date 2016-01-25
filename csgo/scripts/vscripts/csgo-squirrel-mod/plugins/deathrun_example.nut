@@ -1,5 +1,5 @@
 function Trap1() {
-	EntFire("Trap1_Platform", "Break")
+	EntFire("Trap1_Platform", "Break");
 }
 
 function Trap2() {
