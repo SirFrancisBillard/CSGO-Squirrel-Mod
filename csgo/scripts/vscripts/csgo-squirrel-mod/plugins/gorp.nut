@@ -2,7 +2,7 @@
 
 this.Plugin_LongName <- "Global Offensive Roleplay";
 this.Plugin_ShortName <- "GORP";
-this.Plugin_Description <- "Step back from competitive and play the classic mode where wits are more powerful bullets.";
+this.Plugin_Description <- "Step back from competitive and play the classic mode where wits are more powerful than bullets.";
 this.Plugin_Version <- "0.4";
 this.Plugin_Author <- "Sir Francis Billard";
 
