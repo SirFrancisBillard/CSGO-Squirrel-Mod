@@ -99,14 +99,3 @@ function OnMapLoad() {
 function OnNewRound() {
 
 }
-
-// Here it is. Global Offensive Roleplay.
-// When I was dreaming about making this years ago, (Back in the CSS days) I never thought it would ever see the light of day.
-// Dedications:
-// Nathaniel. You sly little bucket.
-// Moofin Man. Time really does fly.
-// MeltingIce. I told you I wasn't worthless!
-// 808dkaneohe. For being the most practical person I have ever met.
-// And of course:
-// Gaben.
-// at valvesoftware.com
