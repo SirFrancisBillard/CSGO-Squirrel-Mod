@@ -69,7 +69,7 @@ function SetPlayerJob(ply, job_id) {
 		ply.SetTeam(JobTeams[job_id]);
 		foreach(curItem in JobItems[job_id]) {
 			GivePlayerItem(ply, curItem);
-		}	
+		}
 	}
 }
 
