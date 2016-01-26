@@ -89,6 +89,8 @@ function LotteryStart(money) {
 	if (money == 0) {
 		money = DefaultLotteryCost;
 	}
+	ScriptPrintMessageCenterAll("The mayor has started a lottery. Go to the casino to participate.")
+	RunConsoleCommand("ent_fire GORP_EnterLotteryButtons Enable")
 }
 
 function OnMapLoad() {
