@@ -108,3 +108,23 @@ function ForEachPlayer(handler, func) {
 	}
 	return plyAmt;
 }
+
+function GetAllEntities() {
+	return Entities;
+}
+
+function GetMaxRandom() {
+	return RAND_MAX;
+}
+
+function RemoveEnt(ent) {
+	ent.Destroy();
+}
+
+function GetIndex(ent) {
+	return ent.entindex();
+}
+
+function IsValidEnt(ent) {
+	return ent.IsValid();
+}
