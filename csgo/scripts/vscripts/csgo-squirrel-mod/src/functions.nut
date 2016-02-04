@@ -128,3 +128,8 @@ function GetIndex(ent) {
 function IsValidEnt(ent) {
 	return ent.IsValid();
 }
+
+function Debug_DrawPlayerLaserLine(_ply, _time, _r, _g, _b) {
+	local startPos = _ply.EyePosition();
+	DebugDrawLine(startPos, Vector end, _r, _g, _b, false, _time);
+}
