@@ -131,5 +131,5 @@ function IsValidEnt(ent) {
 
 function Debug_DrawPlayerLaserLine(_ply, _time, _r, _g, _b) {
 	local startPos = _ply.EyePosition();
-	DebugDrawLine(startPos, Vector end, _r, _g, _b, false, _time);
+	DebugDrawLine(startPos, (startPos * 2), _r, _g, _b, false, _time);
 }
